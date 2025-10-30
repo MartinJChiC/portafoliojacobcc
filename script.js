@@ -60,6 +60,46 @@
 
         observer.observe(statsSection);
 
+        // Form submission with confirmation message
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', (e) => {
+    // Mostrar mensaje de confirmación
+    showConfirmationMessage();
+    
+    // El formulario se enviará normalmente a FormSubmit
+    // No hacemos e.preventDefault() para que FormSubmit funcione
+});
+
+function showConfirmationMessage() {
+    // Crear el elemento del mensaje
+    const message = document.createElement('div');
+    message.className = 'confirmation-message';
+    message.innerHTML = `
+        <div class="confirmation-content">
+            <div class="confirmation-icon">✓</div>
+            <h3>¡Mensaje Enviado!</h3>
+            <p>Gracias por contactarme. Te responderé pronto.</p>
+        </div>
+    `;
+    
+    // Agregar al body
+    document.body.appendChild(message);
+    
+    // Mostrar con animación
+    setTimeout(() => {
+        message.classList.add('show');
+    }, 10);
+    
+    // Remover después de 3 segundos
+    setTimeout(() => {
+        message.classList.remove('show');
+        setTimeout(() => {
+            message.remove();
+        }, 300);
+    }, 3000);
+}
+
         // Form submission - FormSubmit handles the actual sending
         // No need to prevent default, let FormSubmit handle it
 
@@ -75,4 +115,5 @@
                     });
                 }
             });
+
         });
