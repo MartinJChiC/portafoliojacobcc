@@ -505,4 +505,74 @@
             .contact-form {
                 padding: 2rem;
             }
+
         }
+
+        /* Mensaje de Confirmación */
+.confirmation-message {
+    position: fixed;
+    top: 100px;
+    right: -400px;
+    z-index: 10000;
+    transition: right 0.3s ease;
+}
+
+.confirmation-message.show {
+    right: 20px;
+}
+
+.confirmation-content {
+    background: white;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-left: 5px solid #4CAF50;
+}
+
+.confirmation-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.confirmation-content h3 {
+    color: var(--primary-blue);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.confirmation-content p {
+    color: #666;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .confirmation-message {
+        right: -100%;
+        left: 0;
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .confirmation-message.show {
+        right: 0;
+    }
+    
+    .confirmation-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+}    
